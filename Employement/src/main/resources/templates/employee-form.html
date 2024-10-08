@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Form</title>
+    <style>
+    body{
+    background-image: url('https://wallpapers.com/images/hd/light-color-background-swzb97w5pxngu8yv.jpg');
+    background-size: cover;
+    }
+    .m{
+        text-align: center;
+        font-size: 150%;
+    }
+    h2{
+        text-align: center;
+        font-size: 250%;
+    }
+    .m1{
+        text-align: center;  
+        margin-top: 2%;  
+    }
+    .m2{
+        margin-top: 2%;
+        text-align: center;
+        font-size: 150%;
+    }
+  
+    </style>
+</head>
+<body>
+    <h2 > Employee Details</h2>
+    <div class="m">
+     <form th:action="@{/save}" th:object="${employee}" method="post">     
+        <label for="id">ID:</label><br/>
+        <input type="number" th:field="*{id}" required/>
+        <br/>
+        <label for="name">Name:</label><br/>
+        <input type="text" th:field="*{name}" required/>
+        <br/>
+        <label for="position">Position:</label><br/>
+        <input type="text" th:field="*{position}" required/>
+        <br/>
+        <label for="salary">Salary:</label><br/>
+        <input type="number" th:field="*{salary}" step="0.01" required/>
+        <br/>
+    </div>
+    <div class="m1">
+        <button type="submit">Save</button></div>
+    </form>
+    <div class="m2">
+    <a href="/i">Back to list</a></div>
+</body>
+</html>

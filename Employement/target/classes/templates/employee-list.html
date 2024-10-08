@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee List</title>
+    <style>
+   h1{
+    text-align: center;
+    font: 170%;
+    background-color: white;
+   }
+   .add{
+    margin-left: 30%;
+    display: inline-block;
+    background-color: yellow;
+   }
+   .add:active{
+    box-shadow: none;
+    transform: translateY(5px);
+   }
+   body{
+    background-image: url('https://cdn.prod.website-files.com/5a9ee6416e90d20001b20038/64d1500ec499a8c0ad37197a_%20-%2046.png');
+   }
+   .table{
+    margin-top: 4%;
+    margin-left: 35%;
+    width: 100%; height: 500px;
+   }
+   th,td{
+    padding: 20px;
+}
+.photo{
+   margin-left: 30%;
+    width: 150px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            display: inline-block; 
+}
+img {
+            width: 100px; 
+            height: auto; 
+        }
+h3{
+    text-align: center;
+    background-color: aliceblue;
+}
+    </style>
+</head>
+<body>
+    <h1>Employee List</h1>
+    <h3>Our company employee lists are in below. It was efficiently manage and track your employment details with our comprehensive system.</h3>
+    <div class="photo">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHx_2pJec8PilPAg96vjug6wrW4FeAaUcBSw&s" alt="click the button"></div>  
+    
+    <div class="photo">
+        <img src="https://cdn-icons-png.flaticon.com/512/470/470339.png" alt="click the button"></div>  
+        
+    <div class="add"><a href="/new">Add New Employee</a></div>
+    <div class="add">
+    <a href="/new">Edit Employee Details</a></div>
+            <div class="table">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="employee : ${employee}">
+                <td th:text="${employee.id}"></td>
+                <td th:text="${employee.name}"></td>
+                <td th:text="${employee.position}"></td>
+                <td th:text="${employee.salary}"></td>
+                <td> <a th:href="@{/delete/{id}(id=${employee.id})}">Delete</a></td>
+            </tr>
+        </tbody>
+    </table></div>
+</body>
+</html>
